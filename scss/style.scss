@@ -1,0 +1,780 @@
+@use "reset";
+@use "variables"as *;
+@use "mixin"as *;
+@use "header";
+@use "footer";
+@use "modules";
+@use "common";
+@use "drawer";
+
+.page-wrap {
+    display: flex;
+
+    @include mq(sp) {
+        display: initial;
+    }
+}
+
+.main-visual {
+    background: url(../img/photo01.jpg) center center no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: calc(100vw - 160px);
+    margin-bottom: 288px;
+
+    @include mq(sp) {
+        height: 50vh;
+        width: 100%;
+        margin-bottom: 96px;
+    }
+}
+
+.products {
+    .section-headline {
+        text-align: center;
+    }
+
+    &-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 54px;
+
+        @include mq(sp) {
+            margin-top: 32px;
+        }
+    }
+
+    &-content {
+        width: 50%;
+
+        &__img {
+            width: 100%;
+        }
+    }
+}
+
+.recommend {
+    .section-headline {
+        text-align: center;
+    }
+
+    &-wrap {
+        max-width: 1080px;
+        margin: 54px auto 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        row-gap: 36px;
+
+        @include mq(sp) {
+            max-width: initial;
+            margin: 32px auto 0;
+            padding: 0 20px;
+            row-gap: 24px;
+
+            .article {
+                width: 49%;
+            }
+
+        }
+    }
+
+    &-content {
+        //ホバー時の写真枠。これがないと拡大してしまう。
+        .img-box{
+            background-color: $main;
+            overflow: hidden;
+        }
+
+        &__img {
+            height: 200px;
+            width: 300px;
+            display: inline-block;
+
+            transition: all .8s ease;
+
+            &:hover{
+                transform: scale(1.2);
+                opacity: 0.6;
+            }
+
+            @include mq(sp) {
+                height: initial;
+                width: 100%;
+            }
+        }
+
+        &__title {
+            font-family: $serif;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+        &__price {
+            font-family: $serif;
+        }
+    }
+
+    .btn {
+        margin-top: 72px;
+        margin-right: auto;
+        margin-left: auto;
+        @include mq(sp){
+            margin-top: 32px;
+        }
+    }
+}
+
+.concept {
+    max-width: 1080px;
+    margin: 0 auto;
+
+    @include mq(sp) {
+        max-width: initial;
+    }
+    .section-headline {
+        @include mq(sp) {
+            margin-left: 20px;
+        }
+    }
+
+
+    &1 {
+        position: relative;
+        height: 450px;
+        margin-bottom: 90px;
+
+        @include mq(sp) {
+            position: initial;
+            height: initial;
+            background-color: $sub;
+            margin-top: 32px;
+            margin-bottom: 36px;
+            margin-right: 20px;
+            padding-top: 20px;
+            padding-right: 20px;
+        }
+
+        &__img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+
+            @include mq(sp) {
+                position: initial;
+                width: 100%;
+            }
+        }
+
+        &-wrap {
+            background-color: $sub;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 360px;
+            width: 920px;
+            padding: 70px 56px;
+            z-index: -1;
+
+            @include mq(sp) {
+                background-color: initial;
+                position: initial;
+                bottom: initial;
+                left: initial;
+                height: initial;
+                width: initial;
+                padding: initial;
+                z-index: initial;
+                padding: 20px 0 20px 20px;
+            }
+        }
+
+        &__headline {
+            color: $white;
+            font-weight: bold;
+            margin-bottom: 28px;
+
+            @include mq(sp) {
+                font-family: $serif;
+                margin-bottom: 20px;
+            }
+        }
+
+        &__text {
+            color: $white;
+            font-family: $sans;
+            line-height: 2;
+
+            @include mq(sp) {
+                line-height: 1.8;
+            }
+        }
+    }
+
+    &2 {
+        position: relative;
+
+        @include mq(sp) {
+            position: initial;
+            margin-left: 20px;
+        }
+
+        &__img {
+            width: 50%;
+
+            @include mq(sp) {
+                width: 100%;
+            }
+        }
+
+        &-wrap {
+            position: absolute;
+            top: 50%;
+            left: 428px;
+            transform: translateY(-50%);
+
+            @include mq(sp) {
+                position: initial;
+                top: initial;
+                left: initial;
+                transform: initial;
+                padding-top: 20px;
+                padding-right: 20px;
+            }
+        }
+
+        &__headline {
+            font-weight: bold;
+            margin-bottom: 28px;
+
+            @include mq(sp) {
+                font-family: $serif;
+                margin-bottom: 20px;
+            }
+        }
+
+        &__text {
+            font-family: $sans;
+            line-height: 2;
+
+            @include mq(sp) {
+                line-height: 1.8;
+            }
+        }
+    }
+}
+
+
+
+.news {
+    background: url(../img/newsBackground.jpg) center center no-repeat;
+    background-size: cover;
+    padding: 54px 0;
+
+    @include mq(sp) {
+        padding: 36px 0;
+    }
+
+    .section-headline {
+        text-align: center;
+    }
+
+    &-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 640px;
+        margin: 36px auto 0;
+
+        @include mq(sp) {
+            display: block;
+            max-width: 288px;
+            margin: 32px auto 0;
+        }
+    }
+
+    &-content {
+        margin-bottom: 36px;
+        @include mq(sp) {
+            margin-bottom: 24px;
+        }
+
+        &__date {
+            font-family: $sans;
+            font-size: 12px;
+            margin-bottom: 8px;
+
+            @include mq(sp) {
+                font-size: 10px;
+                margin-bottom: 4px;
+            }
+        }
+
+        &__title {
+            font-family: $sans;
+            margin-bottom: 8px;
+
+            @include mq(sp) {
+                margin-bottom: 4px;
+            }
+        }
+
+        &__line {
+            background-color: $black;
+            height: 1px;
+            width: 288px;
+        }
+    }
+
+    .btn {
+        margin-top: 28px;
+        margin-right: auto;
+        margin-left: auto;
+
+        @include mq(sp) {
+            margin-top: 32px;
+        }
+    }
+}
+
+.contact {
+    max-width: 1080px;
+    margin: 0 auto;
+
+    @include mq(sp) {
+        max-width: initial;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    &-wrap {
+        height: 468px;
+        position: relative;
+
+        @include mq(sp) {
+            height: initial;
+            margin-top: 32px;
+        }
+
+        &::after {
+            background-color: $sub;
+            content: "";
+            height: 405px;
+            width: calc(((100vw - 160px) / 2) - 63px);
+            position: absolute;
+            bottom: 0;
+            left: calc(50% + 63px);
+            z-index: -1;
+
+            @include mq(sp) {
+                bottom: initial;
+                left: initial;
+                top: 40px;
+                right: 0;
+                width: calc(100vw - 80px);
+                height: calc(((100vw - 80px) / 4) * 3);
+            }
+        }
+    }
+
+    &__img {
+        width: 50%;
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        @include mq(sp) {
+            width: calc(100% - 40px);
+            position: initial;
+        }
+    }
+
+    &-content {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        @include mq(sp) {
+            position: initial;
+            transform: initial;
+            margin-top: 72px;
+        }
+    }
+
+    &__headline {
+        font-weight: bold;
+        margin-bottom: 28px;
+
+        @include mq(sp) {
+            font-family: $serif;
+            margin-bottom: 20px;
+        }
+    }
+
+    &__text {
+        font-family: $sans;
+        line-height: 2;
+
+        @include mq(sp) {
+            line-height: 1.8;
+
+            .indention {
+                display: none;
+            }
+        }
+    }
+
+    .btn {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        @include mq(sp) {
+            position: relative;
+            bottom: initial;
+            left: initial;
+            margin-top: 32px;
+        }
+    }
+}
+
+// セクションボックス余白
+.section {
+    margin-bottom: 288px;
+
+    @include mq(sp) {
+        margin-bottom: 96px;
+    }
+}
+
+// product.html
+.product-page {
+
+    .product {
+        width: calc(100vw - 160px);
+        padding-top: 170px;
+        padding-bottom: 288px;
+        @include mq(sp){
+            width: 100%;
+            padding: 60px 20px 96px;
+        }
+
+        &-wrap {
+            max-width: 1080px;
+            margin: 0 auto;
+            @include mq(sp){
+                max-width: initial;
+            }
+        }
+
+        &-content {
+            margin-bottom: 72px;
+            display: flex;
+            column-gap: 40px;
+            @include mq(sp){
+                margin-bottom: 32px;
+                display: block;
+                column-gap: initial;
+            }
+        }
+
+        &-img {
+            width: 50%;
+            @include mq(sp){
+                width: 100%;
+            }
+        }
+
+        &-detail {
+            @include mq(sp){
+                margin-top: 32px;
+            }
+            &__serial {
+                font-size: 16px;
+                font-weight: bold;
+                margin-bottom: 8px;
+                @include mq(sp){
+                    font-size: 12px;
+                    margin-bottom: initial;
+                }
+            }
+
+            &__name {
+                font-size: 28px;
+                font-weight: bold;
+                margin-bottom: 8px;
+                @include mq(sp){
+                    font-family: $serif;
+                    font-size: 20px;
+                }
+            }
+
+            &__price {
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 50px;
+                @include mq(sp){
+                    font-size: 18px;
+                    margin-bottom: 48px;
+                }
+            }
+
+            &-spec {
+                display: flex;
+                align-items: center;
+                margin-bottom: 8px;
+                @include mq(sp){
+                    display: initial;
+                }
+
+                .product-color {
+                    display: flex;
+                    align-items: center;
+                    @include mq(sp){
+                        margin-bottom: 14px;
+                    }
+
+                    &__text {
+                        font-family: $sans
+                    }
+
+                    &__variation {
+                        display: flex;
+                        column-gap: 10px;
+                        margin-left: 16px;
+                        margin-right: 32px;
+                        @include mq(sp){
+                            margin-left: 14px;
+                        }
+                    }
+                }
+            }
+
+            &__size {
+                font-family: $sans;
+                @include mq(sp) {
+                    margin-bottom: 14px;
+                }
+            }
+
+            .bottom-line {
+                height: 1px;
+                width: 100%;
+                background-color: $black;
+                margin-bottom: 48px;
+                @include mq(sp){
+                    margin-bottom: 24px;
+                }
+            }
+
+            &__description {
+                font-family: $sans;
+                font-size: 14px;
+                line-height: 2;
+                @include mq(sp){
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .btn {
+            margin-left: auto;
+            @include mq(sp){
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+.tax-include {
+    font-size: 12px;
+    @include mq(sp){
+        font-size: 10px;
+    }
+}
+
+.color-circle {
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+
+    &--green {
+        background-color: $green;
+    }
+
+    &--blue {
+        background-color: $blue;
+    }
+
+    &--brown {
+        background-color: $brown;
+    }
+}
+
+// contact.html
+
+.contact-page {
+
+    .contact {
+        width: calc(100vw - 160px);
+        max-width: initial;
+        @include mq(sp){
+            width: 100%;
+            padding: 0;
+        }
+
+        &-wrap {
+            display: flex;
+            height: initial;
+
+            &::after {
+                content: initial;
+            }
+
+            @include mq(sp){
+                display: initial;
+            }
+        }
+
+        &-visual {
+            background: url(../img/photo010.jpg) center center no-repeat;
+            background-size: cover;
+            height: 100vh;
+            width: 50%;
+            position: sticky;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 0;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                background: rgba(110, 85, 27, 0.41);
+                z-index: -1;
+            }
+
+            @include mq(sp){
+                height: 50vh;
+                width: 100%;
+                position: relative;
+
+                .page-headline{
+                    margin-top: 60px;
+                }
+            }
+        }
+
+        &-form {
+            width: 50%;
+            padding-top: 64px;
+            padding-bottom: 288px;
+            @include mq(sp){
+                width: 100%;
+                padding: 32px 20px 96px;
+            }
+
+            &__intro {
+                font-family: $sans;
+                font-weight: bold;
+                line-height: 2;
+                text-align: center;
+                margin-bottom: 64px;
+                @include mq(sp){
+                    margin-bottom: 32px;
+                }
+            }
+
+            .form-wrap {
+                width: 80%;
+                margin: 0 auto;
+                @include mq(sp){
+                    width: 100%;
+                    padding: 0 20px;
+                }
+
+                .form {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 24px;
+                    @include mq(sp){
+                        display: block;
+                        margin-bottom: 28px;
+                    }
+
+                    &__text {
+                        font-family: $sans;
+                        font-size: 14px;
+                        @include mq(sp){
+                            margin-bottom: 4px;
+                        }
+                    }
+
+                    &__input {
+                        width: 70%;
+                        height: 28px;
+                        background-color: $gray;
+                        border-radius: 2px;
+                        @include mq(sp){
+                            height: 32px;
+                            width: 100%;
+                        }
+                    }
+
+                    &__textarea {
+                        width: 70%;
+                        height: 168px;
+                        background-color: $gray;
+                        border-radius: 2px;
+                        @include mq(sp){
+                            width: 100%;
+                        }
+                    }
+                }
+                .form-button {
+                    width: 70%;
+                    margin-left: auto;
+                    margin-top: 72px;
+                    @include mq(sp){
+                        width: 100%;
+                        margin-left: initial;
+                        margin-top: 32px;
+                    }
+                }
+
+                .btn {
+                    position: relative;
+                    top: initial;
+                    left: initial;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}
+
+.page-headline {
+    text-align: center;
+    z-index: 1;
+
+    &__sub {
+        color: $white;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    &__main {
+        color: $white;
+        font-weight: bold;
+    }
+}
+
+.required {
+    color: $red;
+}

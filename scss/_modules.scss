@@ -1,0 +1,90 @@
+@use "variables"as *;
+.section-headline {
+    &__sub {
+        color: $sub;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    &__main {
+        color: $main;
+        font-weight: bold;
+    }
+}
+
+.sns-link {
+    display: flex;
+
+    &__icon {
+        background-color: $white;
+        color: $black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 32px;
+        width: 32px;
+        border-radius: 50%;
+        margin-right: 10px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &--primary {
+            background-color: $main;
+            color: $white;
+        }
+    }
+}
+
+.btn {
+    border: 1px solid $main;
+    color: $main;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: $sans;
+    height: 48px;
+    width: 216px;
+    line-height: 48px;
+    text-align: center;
+
+    position: relative;
+    z-index: 1;
+    //ホバーがかかる元に指定する
+    transition: all .8s ease;
+
+    &:hover{
+        background-color: $main;
+        border: none;
+        color: $white;
+    }
+
+    &::after {
+        content: "";
+        border: 1px solid $main;
+        height: 48px;
+        width: 216px;
+
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        z-index: 0;
+    }
+
+    &:hover::after{
+        top: 0;
+        left: 0;
+    }
+
+    &--primary {
+        background-color: $main;
+        color: $white;
+
+        &:hover{
+            background-color: transparent;
+            border: none;
+            color: $main;
+        }
+    }
+}

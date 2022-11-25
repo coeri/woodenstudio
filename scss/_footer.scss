@@ -1,0 +1,89 @@
+@use "variables"as *;
+@use "mixin" as *;
+
+.footer {
+    background-color: $black;
+    color: $white;
+    padding-top: 96px;
+    padding-bottom: 72px;
+    text-align: center;
+    @include mq(sp){
+        padding-top: 72px;
+        padding-bottom: 24px;
+    }
+
+    &__logo {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 36px;
+        @include mq(sp){
+            font-size: 18px;
+        }
+
+    }
+
+    &-nav {
+        display: flex;
+        justify-content: center;
+        column-gap: 28px;
+        margin-bottom: 14px;
+        @include mq(sp){
+            margin-bottom: 28px;
+        }
+
+        &__link {
+            font-size: 14px;
+        }
+    }
+
+    &-contact {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 72px;
+        @include mq(sp){
+            margin-bottom: 36px;
+        }
+    }
+
+    &-mail {
+        margin-right: 36px;
+
+        &__icon {
+            margin-right: 8px;
+        }
+
+        &__link {
+            font-size: 14px;
+        }
+    }
+
+    .information {
+        margin-bottom: 80px;
+        @include mq(sp){
+            margin-bottom: 72px;
+        }
+
+        &__text {
+            font-family: $sans;
+            font-size: 14px;
+            line-height: 2;
+            .indention{
+                display: none;
+            }
+            @include mq(sp){
+                line-height: 1.8;
+                .indention{
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .copyrights {
+        font-size: 14px;
+        @include mq(sp){
+            font-size: 12px;
+        }
+    }
+}

@@ -1,0 +1,70 @@
+@use "variables"as *;
+@use "mixin" as *;
+
+body {
+    color: $black;
+    font-family: $caslon,
+    $serif, 
+    $sans,
+    serif;
+}
+
+h2 {
+    font-size: 36px;   
+}
+
+h3 {
+    font-size: 28px;
+}
+
+h4 {
+    font-size: 16px;
+}
+
+p{
+    font-size: 16px;
+}
+
+span{
+    display: inline-block;
+    font-size: 14px;
+}
+
+li {
+    list-style: none;
+}
+
+.pc-none {
+    display: none;
+}
+
+@include mq(sp) {
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    h4 {
+        font-size: 14px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    span {
+        font-size: 12px;
+    }
+
+    .pc-none{
+        display: block;
+    }
+
+    .mobile-none {
+        display: none;
+    }
+
+}

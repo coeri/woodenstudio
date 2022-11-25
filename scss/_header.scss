@@ -1,0 +1,67 @@
+@use "variables"as *;
+@use "mixin" as *;
+
+.header {
+    background-color: $white;
+    height: 100vh;
+    width: 160px;
+    padding: 64px 0;
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+
+    &__logo img {
+        width: 100px;
+    }
+
+    &-nav {
+
+        &__link {
+            text-align: center;
+            margin-bottom: 32px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    @include mq(sp){
+        display: none;
+    }
+}
+
+.sp-header{
+    display: none;
+    @include mq(sp){
+
+        background-color: $white;
+        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+        height: 60px;
+        width: 100%;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        z-index: 2;
+        &__logo{
+            width: 80px;
+        }
+        .hamburger{
+            display: flex;
+            flex-flow: column;
+            row-gap: 10px;
+            &__border{
+                background-color: $main;
+    
+                height: 2px;
+                width: 32px;
+            }
+        }
+    }
+}
